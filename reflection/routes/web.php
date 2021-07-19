@@ -34,6 +34,6 @@ Route::get('/companies', function(){
 
 Route::get('/', [companiesController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('companies/{companies:id}', [companiesController::class, 'show']);
+Route::get('companies/{companies:id}/Name', [companiesController::class, 'show']);
 
-Route::get('companies/{company:Name}/employees', [employeesController::class, 'show']);
+Route::get('companies/{companies:id}/employees', [employeesController::class, 'show']);

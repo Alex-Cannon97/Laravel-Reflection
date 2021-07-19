@@ -10,8 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="inner-cont p-6 bg-white border-b border-gray-200">
                     <div class="tab-flex">
-                        <a href="companies/{companies:id}"><h2 class="comp-text pad-left">Name</h2></a>
-                        <a href="companies/{{$employees['company']}}/employees"><h2 class="comp-text pad-left">Employees</h2></a>
+                        <a href="./Name"><h2 class="comp-text pad-left">{{$employees[1]['company']}}</h2></a>
+                        <a href="./employees"><h2 class="comp-text pad-left">Employees</h2></a>
                     </div>
                     <button class="employee-btn">Add new employee</button>
                 </div>

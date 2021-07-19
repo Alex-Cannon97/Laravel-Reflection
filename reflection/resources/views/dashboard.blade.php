@@ -27,7 +27,7 @@
                         <td class="cell-data">{{$company['email']}}</td>
                         <td class="cell-data">{{$company['logo']}}</td>
                         <td class="cell-data">{{$company['website']}}</td>
-                        <td class="button-table"><a href="/companies/{{$company['id'] }}" class="table-btn read"><i class="far fa-eye"></i></a> <button class="table-btn edit"><i class="far fa-edit"></i></button> <button class="table-btn delete"><i class="fas fa-trash"></i></button></td>
+                        <td class="button-table"><a href="/companies/{{$company['id'] }}/Name" class="table-btn read"><i class="far fa-eye"></i></a> <button class="table-btn edit"><i class="far fa-edit"></i></button> <button class="table-btn delete"><i class="fas fa-trash"></i></button></td>
                     </tr>
                     @endforeach
                 </table>

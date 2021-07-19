@@ -10,8 +10,12 @@ class employeesController extends Controller
 {
     public function show($id)
    {
-       $employees =employees::where('company', $id)->orderBy('firstName')->paginate(10);
-       return view('layouts.employees',['employees'=>$employees]);
+       $employees =employees::where('foreign-id', $id)->orderBy('firstName')->paginate(10);
+       $company = companies::where('id', $id)->paginate(1);
+       return view('layouts.employees',[
+           'employees'=>$employees,
+           'company'=>$company,
+        ]);
    }
 
 
