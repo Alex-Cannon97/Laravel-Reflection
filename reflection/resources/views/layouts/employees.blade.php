@@ -30,7 +30,7 @@
                         <td class="cell-data width">{{$employee['email']}}</td>
                         <td class="cell-data width">{{$employee['phone']}}</td>
                         <td class="cell-data width">{{$employee['updated_at']}}</td>
-                        <td class="button-table"><button class="table-btn edit"><i class="far fa-edit"></i></button> <button class="table-btn delete"><i class="fas fa-trash"></i></button></td>
+                        <td class="button-table"><button class="table-btn edit"><i class="far fa-edit"></i></button><a href="{{url('delete/'.$employee['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </table>

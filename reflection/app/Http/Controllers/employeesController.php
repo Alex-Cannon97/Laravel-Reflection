@@ -18,5 +18,10 @@ class employeesController extends Controller
         ]);
    }
 
-
+   public function delete($id)
+    {
+        $employees = employees::find($id);
+        $employees->delete();
+        return back();
+    }
 }

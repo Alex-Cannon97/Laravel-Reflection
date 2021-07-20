@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\companies;
 use App\Models\employees;
+use App\Models\images;
 use Illuminate\Database\Seeder;
 
 
@@ -21,6 +22,9 @@ class DatabaseSeeder extends Seeder
         $companies = companies::factory(30)->create();
 
         foreach($companies as $company){
+            // images::factory(1)->create([
+            //     'foreign-id'=> $company->id
+            // ]);
             employees::factory(50)->create([
                 'foreign-id' => $company->id,
                 'company' => $company->Name 
