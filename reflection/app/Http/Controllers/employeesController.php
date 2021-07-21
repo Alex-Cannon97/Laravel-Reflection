@@ -10,7 +10,7 @@ class employeesController extends Controller
 {
     public function show($id)
    {
-       $employees =employees::where('foreign-id', $id)->orderBy('firstName')->paginate(10);
+       $employees =employees::where('foreign-id', $id)->paginate(10);
        $company = companies::where('id', $id)->paginate(1);
        return view('layouts.employees',[
            'employees'=>$employees,
@@ -18,7 +18,7 @@ class employeesController extends Controller
         ]);
    }
 
-   public function delete($id)
+   public function destroy($id)
     {
         $employees = employees::find($id);
         $employees->delete();

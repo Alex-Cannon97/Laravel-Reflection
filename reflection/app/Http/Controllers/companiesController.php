@@ -19,4 +19,11 @@ class companiesController extends Controller
        'companies' => $companies,
      ]);
    }
+
+   public function delete($id)
+    {
+        $companies = companies::find($id);
+        $companies->delete();
+        return redirect('/');
+    }
 }

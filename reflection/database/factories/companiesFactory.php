@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\companies;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class companiesFactory extends Factory
 {
@@ -20,11 +22,23 @@ class companiesFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    {   $logos = array_values(array_filter(
+        Storage::disk('public')->files('images'),
+            function ($path){
+                return !Str::contains($path, '/.');
+            }
+        ));
+
+        if(count($logos) > 0){
+            $logo = $logos[rand(0, count($logos) -1)];
+        } else{
+            $logo = '';
+        }
+
         return [
             'Name' => $this->faker->unique()->word(),
             'email' => $this->faker->unique()->safeEmail(),
-            'logo'=> $this->faker->image(),
+            'logo' => $logo,
             'website'=> $this->faker->url(),
             'updated_at' => now(),
             'created_at' => now(),

@@ -16,6 +16,36 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script>
+            function myFunction(){
+                if(!confirm("Are you sure you want to delete this company?"))
+                event.preventDefault();
+            }
+        </script>
+        <script>
+           function employeeDelete(){
+               if(!confirm("Are you sure you want to delete this employee?"))
+               event.preventDefault();
+                    }
+        </script>
+        <script>
+           function modalShow(){
+               const greyOverlay = document.querySelector(".grey-background")
+               const Modal = document.querySelector(".modal")
+
+               greyOverlay.classList.remove('no-display')
+               Modal.classList.remove('no-display')
+                    }
+        </script>
+        <script>
+           function modalClose(){
+               const greyOverlay = document.querySelector(".grey-background")
+               const Modal = document.querySelector(".modal")
+
+               greyOverlay.classList.add('no-display')
+               Modal.classList.add('no-display')
+                    }
+        </script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

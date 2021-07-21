@@ -188375,6 +188375,7 @@ input[type='checkbox']:checked:hover{
 
 .width{
   width: auto;
+  max-width: 100px;
 }
 
 .tab-flex{
@@ -188392,4 +188393,104 @@ input[type='checkbox']:checked:hover{
 .employee-btn:hover{
   background-color: #109a10;
   color: white;
+}
+
+.grey-background{
+  background-color: rgba(0,0,0,0.4);
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal{
+  background-color: white;
+  width: 80%;
+  height: 80%;
+  z-index: 101;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  border-radius: 5px;
+  max-width: 900px;
+}
+
+.modal-header{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  font-size: 25px;
+  font-family: monospace;
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+
+.move{
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.modal-form{
+  display: flex;
+  width: 100%;
+  height: 89.6%;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-company-form{
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+  background-color: #bbbaba;
+  width: 830px;
+  height: 500px;
+  padding: 30px 10px 0px;
+  border-radius: 5px;
+}
+
+.add-company-form input{
+  margin-bottom: 20px;
+}
+
+.add-company-form label{
+  font-size: 20px;
+}
+
+.required{
+  color: #d0040482;
+}
+
+.add-new-company{
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 170px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.add-new-company:hover{
+  background-color: black;
+  color: white;
+}
+
+.no-display{
+  display: none;
+}
+
+.main-header{
+  display: flex;
+  align-items: center;
+  margin-left: 230px;
+}
+
+.close-header{
+  margin-left: 230px;
+  cursor: pointer;
 }

@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flexy-boy p-6 bg-white border-b border-gray-200">
                     <h2 class="comp-text">Companies:</h2>
-                    <button class="add-new-btn">Add new business</button>
+                    <button onclick="return modalShow();" class="add-new-btn">Add new business</button>
                 </div>
                 <table class="comp-table-cont">
                     <tr>
@@ -22,18 +22,44 @@
                     </tr>
                     @foreach($companies as $company)
                     <tr class="clean">
-                        <td class="cell-data">{{$company['id']}}</td>
+                        <td class="cell-data text-center">{{$company['id']}}</td>
                         <td class="cell-data">{{$company['Name']}}</td>
                         <td class="cell-data">{{$company['email']}}</td>
-                        <td class="cell-data">{{$company['logo']}}</td>
+                        <td class="cell-data text-center">@if ($company['logo'] != "")
+                            1
+                            @else
+                            0
+                        @endif    
+                        </td>
                         <td class="cell-data">{{$company['website']}}</td>
-                        <td class="button-table"><a href="/companies/{{$company['id'] }}/Name" class="table-btn read"><i class="far fa-eye"></i></a> <button class="table-btn edit"><i class="far fa-edit"></i></button> <button class="table-btn delete"><i class="fas fa-trash"></i></button></td>
+                        <td class="button-table"><a href="/companies/{{$company['id'] }}/Name" class="table-btn read"><i class="far fa-eye"></i></a> <button class="table-btn edit"><i class="far fa-edit"></i></button> <a onclick="return myFunction();" href="{{url('delete/'.$company['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </table>
             </div> 
             <div class="paginate-links">
                 {{ $companies->links() }}
+            </div>
+        </div>
+        <div class="grey-background no-display">
+            <div class="modal no-display">
+                <div class="modal-header">
+                    <div class="main-header"><x-application-logo class="block h-20 w-20 fill-current text-gray-600" /><h3 class="move">Add Company Details:</h3></div>
+                    <div onclick="return modalClose();" class="close-header"><span class="close">X</span></div>
+                </div>
+                <div class="modal-form">
+                    <form class="add-company-form">
+                        <label for="company-name" class="modal-lable">Company Name: <span class="required">*</span></label>
+                        <input class="company-name" type="text" name="company-name" required="required">
+                        <label for="company-email" class="modal-lable">Company Email: <span class="required">*</span></label>
+                        <input class="company-email" type="text" name="company-email" required="required">
+                        <label for="company-logo" class="modal-lable">Company Logo: <span class="required">*</span></label>
+                        <input class="company-logo" type="text" name="company-logo" required="required">
+                        <label for="company-website" class="modal-lable">Company Website: <span class="required">*</span></label>
+                        <input class="company-website" type="text" name="company-website" required="required">
+                        <button type="submit" class="add-new-company">Add New Company</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
