@@ -54,10 +54,10 @@
                         <label for="company-email" class="modal-lable">Company Email: <span class="required">*</span></label>
                         <input class="company-email" type="text" name="company-email" required="required">
                         <label for="company-logo" class="modal-lable">Company Logo: <span class="required">*</span></label>
-                        <input class="company-logo" type="text" name="company-logo" required="required">
+                        <input class="company-logo" type="file" name="company-logo" required="required">
                         <label for="company-website" class="modal-lable">Company Website: <span class="required">*</span></label>
                         <input class="company-website" type="text" name="company-website" required="required">
-                        <button type="submit" class="add-new-company">Add New Company</button>
+                        <a href="" class="add-new-company">Add New Company</a>
                     </form>
                 </div>
             </div>

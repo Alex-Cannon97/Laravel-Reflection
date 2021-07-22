@@ -26,4 +26,6 @@ class companiesController extends Controller
         $companies->delete();
         return redirect('/');
     }
+   
+
 }

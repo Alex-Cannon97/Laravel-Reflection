@@ -23,10 +23,10 @@ class employeesFactory extends Factory
     public function definition()
     {
         return [
+                'foreign_id' => companies::factory(),
                 'firstName'=>$this->faker->firstName(),  
                 'lastName' =>$this->faker->lastName(), 
-                'foreign-id' => companies::factory(), 
-                // 'company' =>$this->faker->word(), 
+                'companyName' =>$this->faker->word(), 
                 'email' => $this->faker->unique()->safeEmail(),
                 'phone' => $this->faker->unique()->phoneNumber(),
                 'updated_at' => now(),

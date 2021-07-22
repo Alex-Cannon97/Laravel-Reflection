@@ -17,4 +17,9 @@ class companies extends Model
 
     ];
 
+    protected function employees()
+    {
+        return $this->hasMany(employees::class, 'foreign_id', 'id');
+    }
+    
 }

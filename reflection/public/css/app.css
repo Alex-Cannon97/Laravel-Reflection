@@ -188494,3 +188494,9 @@ input[type='checkbox']:checked:hover{
   margin-left: 230px;
   cursor: pointer;
 }
+
+.company-logo{
+  border: 1px solid #7b7a7a;
+  background: white;
+  padding: 6px;
+}

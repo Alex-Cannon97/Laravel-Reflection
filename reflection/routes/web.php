@@ -40,3 +40,4 @@ Route::get('companies/{companies:id}/employees', [employeesController::class, 's
 Route::get('deletes/{id}', [employeesController::class, 'destroy']);
 
 Route::get('delete/{id}', [companiesController::class, 'delete']);
+Route::post('companies/{companies:id}/store', [employeesController::class, 'store']);

@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
             //     'foreign-id'=> $company->id
             // ]);
             employees::factory(50)->create([
-                'foreign-id' => $company->id,
-                'company' => $company->Name 
+                'foreign_id' => $company->id,
+                'companyName' => $company->Name 
             ]);
         }
     }
