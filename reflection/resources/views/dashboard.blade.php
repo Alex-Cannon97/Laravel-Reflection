@@ -23,7 +23,7 @@
                     @foreach($companies as $company)
                     <tr class="clean">
                         <td class="cell-data text-center">{{$company['id']}}</td>
-                        <td class="cell-data">{{$company['Name']}}</td>
+                        <td class="cell-data text-center">{{$company['Name']}}</td>
                         <td class="cell-data">{{$company['email']}}</td>
                         <td class="cell-data text-center">@if ($company['logo'] != "")
                             1
@@ -48,7 +48,8 @@
                     <div onclick="return modalClose();" class="close-header"><span class="close">X</span></div>
                 </div>
                 <div class="modal-form">
-                    <form class="add-company-form">
+                    <form method="POST" class="add-company-form" action="companies/store" enctype="multipart/form-data">
+                        @csrf
                         <label for="company-name" class="modal-lable">Company Name: <span class="required">*</span></label>
                         <input class="company-name" type="text" name="company-name" required="required">
                         <label for="company-email" class="modal-lable">Company Email: <span class="required">*</span></label>
@@ -57,7 +58,7 @@
                         <input class="company-logo" type="file" name="company-logo" required="required">
                         <label for="company-website" class="modal-lable">Company Website: <span class="required">*</span></label>
                         <input class="company-website" type="text" name="company-website" required="required">
-                        <a href="" class="add-new-company">Add New Company</a>
+                        <button type="submit" class="add-new-company">Add New Company</button>
                     </form>
                 </div>
             </div>

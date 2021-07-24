@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="inner-cont p-6 bg-white border-b border-gray-200">
                     <div class="tab-flex">
-                        <a href="./Name"><h2 class="comp-text pad-left">{{$employees[0]['companyName']}}</h2></a>
+                        <a href="./Name"><h2 class="comp-text pad-left">{{$company->Name}}</h2></a>
                         <a href="./employees"><h2 class="comp-text pad-left">Employees</h2></a>
                     </div>
                     <button onclick="return modalShow();" class="employee-btn">Add new employee</button>

@@ -27,7 +27,7 @@
                         <td class="cell-data center width">{{$companies['id']}}</td>
                         <td class="cell-data center width">{{$companies['Name']}}</td>
                         <td class="cell-data center width">{{$companies['email']}}</td>
-                        <td class="cell-data center width"><img src="/Storage/{{$companies['logo']}}"></td>
+                        <td class="cell-data center width"><img src="/storage/{{$companies['logo']}}"></td>
                         <td class="cell-data center width">{{$companies['website']}}</td>
                         <td class="button-table"><button class="table-btn edit"><i class="far fa-edit"></i></button> <a onclick="return myFunction();" href="{{url('delete/'.$companies['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
                     </tr>

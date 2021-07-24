@@ -11,10 +11,10 @@ class employeesController extends Controller
     public function show($id)
    {
        $employees =employees::where('foreign_id', $id)->paginate(10);
-       $company = companies::find($id)->paginate(1);
+       $company = companies::find($id);
        return view('layouts.employees',[
            'employees'=>$employees,
-           'companyName'=>$company,
+           'company'=>$company,
         ]);
    }
 

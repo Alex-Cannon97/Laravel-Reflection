@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\companies;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 
 class companiesController extends Controller
@@ -27,5 +29,20 @@ class companiesController extends Controller
         return redirect('/');
     }
    
+  public function storeCompany(companies $company, Request $request)
+  {
+    $attributes = request()->validate([
+      'company-name'=>'required',
+      'company-email'=>'required',
+      'company-logo'=>'required',
+      'company-website'=>'required',
+    ]);
+      $logo = $request->file('company-logo');
+      $extension = $logo->getClientOriginalExtension();
+      Storage::disk('public')->put($logo->getFilename().'.'.$extension, File::get($logo));
+
+    $company->addCompany($attributes['company-name'], $attributes['company-email'], "images/".$logo->getFilename().'.'.$extension, $attributes['company-website']);
+    return back();
+  }
 
 }

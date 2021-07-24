@@ -22,4 +22,8 @@ class companies extends Model
         return $this->hasMany(employees::class, 'foreign_id', 'id');
     }
     
+    public function addCompany($Name, $email, $logo, $website)
+    {
+        return $this->create(compact(['Name', 'email', 'logo', 'website']));
+    }
 }

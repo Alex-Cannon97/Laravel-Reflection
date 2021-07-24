@@ -41,3 +41,4 @@ Route::get('deletes/{id}', [employeesController::class, 'destroy']);
 
 Route::get('delete/{id}', [companiesController::class, 'delete']);
 Route::post('companies/{companies:id}/store', [employeesController::class, 'store']);
+Route::post('companies/store', [companiesController::class, 'storeCompany']);
