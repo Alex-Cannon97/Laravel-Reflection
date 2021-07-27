@@ -37,10 +37,28 @@
                Modal.classList.remove('no-display')
                     }
         </script>
+          <script>
+           function modalShow2(){
+               const greyOverlay = document.querySelector(".grey-background2")
+               const Modal = document.querySelector(".modal2")
+
+               greyOverlay.classList.remove('no-display')
+               Modal.classList.remove('no-display')
+                    }
+        </script>
         <script>
            function modalClose(){
                const greyOverlay = document.querySelector(".grey-background")
                const Modal = document.querySelector(".modal")
+
+               greyOverlay.classList.add('no-display')
+               Modal.classList.add('no-display')
+                    }
+        </script>
+          <script>
+           function modalClose2(){
+               const greyOverlay = document.querySelector(".grey-background2")
+               const Modal = document.querySelector(".modal2")
 
                greyOverlay.classList.add('no-display')
                Modal.classList.add('no-display')

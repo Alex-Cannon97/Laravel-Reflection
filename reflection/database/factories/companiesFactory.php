@@ -23,11 +23,13 @@ class companiesFactory extends Factory
      */
     public function definition()
     {   $logos = array_values(array_filter(
-        Storage::disk('public')->files('images'),
+        Storage::disk('public')->files(),
             function ($path){
                 return !Str::contains($path, '/.');
             }
         ));
+        
+        
 
         if(count($logos) > 0){
             $logo = $logos[rand(0, count($logos) -1)];

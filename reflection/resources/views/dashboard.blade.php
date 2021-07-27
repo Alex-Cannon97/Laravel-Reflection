@@ -32,7 +32,7 @@
                         @endif    
                         </td>
                         <td class="cell-data">{{$company['website']}}</td>
-                        <td class="button-table"><a href="/companies/{{$company['id'] }}/Name" class="table-btn read"><i class="far fa-eye"></i></a> <button class="table-btn edit"><i class="far fa-edit"></i></button> <a onclick="return myFunction();" href="{{url('delete/'.$company['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
+                        <td class="button-table"><a href="/companies/{{$company['id'] }}/Name" class="table-btn read"><i class="far fa-eye"></i></a>  <a onclick="return myFunction();" href="{{url('delete/'.$company['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </table>

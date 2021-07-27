@@ -8,7 +8,7 @@ use App\Models\companies;
 
 class employeesController extends Controller
 {
-    public function show($id)
+    public function index($id)
    {
        $employees =employees::where('foreign_id', $id)->paginate(10);
        $company = companies::find($id);
@@ -16,6 +16,22 @@ class employeesController extends Controller
            'employees'=>$employees,
            'company'=>$company,
         ]);
+   }
+
+   public function show(employees $employee, companies $companies)
+   {
+    return view('layouts.singleEmployee',[
+        'employee'=>$employee,
+        'companies'=>$companies
+    ]);
+   }
+
+   public function update(employees $employee, Request $request)
+   {
+       $inputs = request()->all();
+    //    dd($inputs);
+       $employee->update($inputs);
+       return back();
    }
 
    public function destroy($id)

@@ -27,12 +27,34 @@
                         <td class="cell-data center width">{{$companies['id']}}</td>
                         <td class="cell-data center width">{{$companies['Name']}}</td>
                         <td class="cell-data center width">{{$companies['email']}}</td>
-                        <td class="cell-data center width"><img src="/storage/{{$companies['logo']}}"></td>
+                        <td class="cell-data center width"><img src="/storage/images/{{$companies['logo']}}"></td>
                         <td class="cell-data center width">{{$companies['website']}}</td>
-                        <td class="button-table"><button class="table-btn edit"><i class="far fa-edit"></i></button> <a onclick="return myFunction();" href="{{url('delete/'.$companies['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
+                        <td class="button-table"><button onclick="return modalShow2()" class="table-btn edit"><i class="far fa-edit"></i></button> <a onclick="return myFunction();" href="{{url('delete/'.$companies['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
                     </tr>
                 </table>
             </div> 
+        </div>
+        <div class="grey-background2 no-display">
+            <div class="modal2 no-display">
+                <div class="modal-header">
+                    <div class="main-header"><x-application-logo class="block h-20 w-20 fill-current text-gray-600" /><h3 class="move">Update Company Details:</h3></div>
+                    <div onclick="return modalClose2();" class="close-header"><span class="close">X</span></div>
+                </div>
+                <div class="modal-form">
+                    <form method="POST" class="add-company-form" action="/companies/{{$companies->id}}/update" enctype="multipart/form-data">
+                        @csrf
+                        <label for="Name" class="modal-lable">Company Name: <span class="required">*</span></label>
+                        <input class="company-name" type="text" name="Name" required="required">
+                        <label for="email" class="modal-lable">Company Email: <span class="required">*</span></label>
+                        <input class="company-email" type="text" name="email" required="required">
+                        <label for="logo" class="modal-lable">Company Logo: </label>
+                        <input class="company-logo" type="file" name="logo">
+                        <label for="website" class="modal-lable">Company Website: <span class="required">*</span></label>
+                        <input class="company-website" type="text" name="website" required="required">
+                        <button type="submit" class="add-new-company">Update Company</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>

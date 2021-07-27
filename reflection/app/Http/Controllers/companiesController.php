@@ -25,6 +25,8 @@ class companiesController extends Controller
    public function delete($id)
     {
         $companies = companies::find($id);
+        $images = $companies->logo;
+        unlink("storage/images/".$images);
         $companies->delete();
         return redirect('/');
     }
@@ -41,7 +43,20 @@ class companiesController extends Controller
       $extension = $logo->getClientOriginalExtension();
       Storage::disk('public')->put($logo->getFilename().'.'.$extension, File::get($logo));
 
-    $company->addCompany($attributes['company-name'], $attributes['company-email'], "images/".$logo->getFilename().'.'.$extension, $attributes['company-website']);
+    $company->addCompany($attributes['company-name'], $attributes['company-email'], $logo->getFilename().'.'.$extension, $attributes['company-website']);
+    return back();
+  }
+
+  public function update($id, Request $request)
+  {
+    $company = companies::find($id);
+    $attributes = request()->validate([
+      'Name'=>'required',
+      'email'=>'required',
+      
+      'website'=>'required',
+    ]);
+    $company->update($attributes);
     return back();
   }
 

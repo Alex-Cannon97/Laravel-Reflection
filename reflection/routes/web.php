@@ -36,9 +36,12 @@ Route::get('/', [companiesController::class, 'index'])->middleware(['auth'])->na
 
 Route::get('companies/{companies:id}/Name', [companiesController::class, 'show']);
 
-Route::get('companies/{companies:id}/employees', [employeesController::class, 'show']);
+Route::get('companies/{companies:id}/employees', [employeesController::class, 'index']);
 Route::get('deletes/{id}', [employeesController::class, 'destroy']);
 
 Route::get('delete/{id}', [companiesController::class, 'delete']);
 Route::post('companies/{companies:id}/store', [employeesController::class, 'store']);
 Route::post('companies/store', [companiesController::class, 'storeCompany']);
+Route::post('companies/{companies:id}/update', [companiesController::class, 'update']);
+Route::get('employees/{employee}', [employeesController::class, 'show']);
+Route::patch('employees/{employee:id}/update', [employeesController::class, 'update']);
