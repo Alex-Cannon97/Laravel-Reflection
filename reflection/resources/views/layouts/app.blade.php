@@ -13,6 +13,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
@@ -59,6 +60,15 @@
            function modalClose2(){
                const greyOverlay = document.querySelector(".grey-background2")
                const Modal = document.querySelector(".modal2")
+
+               greyOverlay.classList.add('no-display')
+               Modal.classList.add('no-display')
+                    }
+        </script>
+         <script>
+           function errormodalClose(){
+               const greyOverlay = document.querySelector(".grey-background3")
+               const Modal = document.querySelector(".error-modal")
 
                greyOverlay.classList.add('no-display')
                Modal.classList.add('no-display')

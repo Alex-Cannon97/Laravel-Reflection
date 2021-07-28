@@ -17,31 +17,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/management', function () {
-    return view('welcome');
-});
-
 // Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
-Route::get('/companies', function(){
+Route::middleware(['auth'])->group(function(){
+   
+    Route::get('/companies', function(){
     $companies = companies::all();
     return view('dashboard', ['companies' => $companies]);
+    });
+
+    Route::get('/', [companiesController::class, 'index'])->name('dashboard');
+
+    Route::get('companies/{companies:id}/Name', [companiesController::class, 'show']);
+
+    Route::get('companies/{companies:id}/employees', [employeesController::class, 'index']);
+    Route::get('deletes/{id}', [employeesController::class, 'destroy']);
+
+    Route::get('delete/{id}', [companiesController::class, 'delete']);
+    Route::post('companies/{companies:id}/store', [employeesController::class, 'store']);
+    Route::post('companies/store', [companiesController::class, 'storeCompany']);
+    Route::post('companies/{companies:id}/update', [companiesController::class, 'update']);
+    Route::get('employees/{employee}', [employeesController::class, 'show']);
+    Route::patch('employees/{employee:id}/update', [employeesController::class, 'update']);
 });
 
-Route::get('/', [companiesController::class, 'index'])->middleware(['auth'])->name('dashboard');
-
-Route::get('companies/{companies:id}/Name', [companiesController::class, 'show']);
-
-Route::get('companies/{companies:id}/employees', [employeesController::class, 'index']);
-Route::get('deletes/{id}', [employeesController::class, 'destroy']);
-
-Route::get('delete/{id}', [companiesController::class, 'delete']);
-Route::post('companies/{companies:id}/store', [employeesController::class, 'store']);
-Route::post('companies/store', [companiesController::class, 'storeCompany']);
-Route::post('companies/{companies:id}/update', [companiesController::class, 'update']);
-Route::get('employees/{employee}', [employeesController::class, 'show']);
-Route::patch('employees/{employee:id}/update', [employeesController::class, 'update']);

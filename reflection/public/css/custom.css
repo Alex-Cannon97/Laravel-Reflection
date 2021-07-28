@@ -1,0 +1,392 @@
+.flexy-boy{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .comp-text{
+    font-size: 20px; 
+    font-weight: 600;
+  }
+  
+  .add-new-btn{
+    background-color: #48ea48;
+    border: 1px solid green;
+    border-radius: 6px;
+    padding: 0px 10px;
+    font-weight: 600;
+  }
+  
+  .add-new-btn:hover{
+    background-color: #10c710;
+  }
+  
+  .comp-table-cont{
+    background-color: #e6e6ea;
+    height: 100%;
+    width: 99.96%;
+    max-height: 427px;
+  }
+  
+  .cell-data{
+    width: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 40px;
+    padding: 0px 40px;
+    max-width: 350px;
+    border-right: 1px solid #aba8a8;
+  }
+  
+  .button-table{
+     display: flex;
+     justify-content: center;
+     height: 100%;
+     align-items: center;
+  }
+  
+  .button-table i{
+    padding: 0px 5px;
+  }
+  
+  .clean{
+    border: 1px solid gray;
+    border-bottom: 1px solid #aba8a8;
+    box-shadow: 5px 10px 18px #88888873;
+  }
+  
+  .table-btn{
+    height: 30px;
+    width: 30px;
+    margin: 0px 5px;
+  }
+  
+  .read{
+    background-color: #f7f761a1;
+    border: 1px solid #d0be1f;
+    border-radius: 5px;
+    padding-top: 3px;
+  }
+  
+  .read:hover{
+    background-color: #dcdc4df0;
+    color: white;
+    border: 1px solid #bdbd44;
+  }
+  
+  .edit{
+    background-color: #6eda6e;
+    border: 1px solid #1d9e0a;
+    border-radius: 5px;
+    padding-left: 2px;
+  }
+  
+  .edit:hover{
+    background-color: #1d9c1d;
+    color: white;
+    border: 1px solid green;
+  }
+  
+  .delete{
+    background-color: #e42727ba;
+    border: 1px solid #bd0101;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .delete:hover{
+    background-color: #e20b0b;
+    color: white;
+    border: 1px solid #861d1d;
+  }
+  
+  .paginate-links{
+    background-color: white;
+    padding: 0px 0px 0px 8px;
+    border-radius: 5px;
+  }
+
+  .paginate-links a{
+      font-weight: 600;
+      color: black;
+  }
+  
+  .center{
+    text-align: center;
+  }
+  
+  .inner-cont{
+    display: flex;
+    padding-bottom: 0px;
+    justify-content: space-between;
+  }
+  
+  .inner-cont a{
+    padding-right: 15px;
+    border: 1px solid #bdbdbd;
+    background: #e4dfdf;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    align-items: center;
+    height: 42px;
+  }
+  
+  .back-icon{
+    padding-left: 15px;
+    font-size: 25px;
+  }
+  
+  .pad-left{
+    padding: 5px 0px 5px 18px;
+  }
+  
+  .width{
+    width: auto;
+    max-width: 170px;
+  }
+  
+  .tab-flex{
+    display: flex;
+  }
+  
+  .employee-btn{
+    background-color: #13c513;
+    border: 1px solid #2da723;
+    border-radius: 5px;
+    height: 35px;
+    padding:0px 5px;
+  }
+  
+  .employee-btn:hover{
+    background-color: #109a10;
+    color: white;
+  }
+  
+  .grey-background, .grey-background2, .grey-background3{
+    background-color: rgba(0,0,0,0.4);
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .modal, .modal2{
+    background-color: white;
+    width: 80%;
+    height: 80%;
+    z-index: 101;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    border-radius: 5px;
+    max-width: 900px;
+  }
+  
+  .modal-header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-size: 25px;
+    font-family: monospace;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+  }
+  
+  .move{
+    padding-left: 10px;
+    padding-bottom: 5px;
+  }
+  
+  .modal-form{
+    display: flex;
+    width: 100%;
+    height: 89.6%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .add-company-form{
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    background-color: #bbbaba;
+    width: 830px;
+    height: 500px;
+    padding: 30px 10px 0px;
+    border-radius: 5px;
+  }
+  
+  .add-company-form input{
+    margin-bottom: 20px;
+  }
+  
+  .add-company-form label{
+    font-size: 20px;
+  }
+  
+  .required{
+    color: #d0040482;
+  }
+  
+  .add-new-company{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: 600;
+  }
+  
+  .add-new-company:hover{
+    background-color: black;
+    color: white;
+  }
+  
+  .no-display{
+    display: none;
+  }
+  
+  .main-header{
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+  }
+  
+  .close-header{
+    margin-right: 37px;
+    cursor: pointer;
+  }
+  
+  .company-logo{
+    border: 1px solid #7b7a7a;
+    background: white;
+    padding: 6px;
+  }
+  
+  .information-content{
+    background-color: #e6e6ea;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .title{
+    font-size: 25px;
+    font-weight: 600;
+    text-decoration: underline;
+    margin: 15px 0px;
+  }
+  
+  .overflow{
+    width: 317px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .info-sections{
+    margin: 20px 0px;
+    border: 1px solid #868282;
+    background-color: #9a929226;
+    padding: 0px 10px;
+    border-radius: 10px;
+    box-shadow: 7px 5px #5656569e;
+  }
+  
+  .acc-info{
+    padding-bottom: 10px;
+    margin-left: 5px;
+  }
+  
+  .tab-flexy{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .name-tabs{
+    display: flex;
+  }
+  
+  .update{
+    background-color: #07d007;
+    border: 1px solid black;
+    height: 35px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+  
+  .update:hover{
+    background-color: #249a24;
+    color: white;
+  }
+  
+  img{
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  .currentlyActive{
+    background-color: #7d7c7c8f !important;
+    border-color: #585858 !important;
+  }
+
+  .flex-top{
+      margin-left: -19px;
+  }
+
+  .dashboard-links a{
+      border-color: black;
+  }
+
+  .error-modal{
+    z-index: 101;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    width: 480px;
+    height: 170px;
+    border: 1px solid;
+    margin-top: 10px;
+  }
+
+  .error-modal h2{
+    font-size: 30px;
+    text-align: center;
+    background: #f36464;
+    font-weight: 600;
+    border-bottom: 1px solid;
+  }
+
+  .error-modal p{
+    margin-top: 6px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .error-modal button{
+    margin-top: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 2px 20px;
+    background-color: #25e825;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .error-modal button:hover{
+      background-color: #029202;
+      color: white;
+  }

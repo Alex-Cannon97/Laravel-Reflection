@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Company Dashboard') }}
+            {{ __('Employee Dashboard') }}
         </h2>
     </x-slot>
 
@@ -10,8 +10,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="inner-cont p-6 bg-white border-b border-gray-200">
                     <div class="tab-flex">
-                        <a href="./Name"><h2 class="comp-text pad-left">{{$company->Name}}</h2></a>
-                        <a href="./employees"><h2 class="comp-text pad-left">Employees</h2></a>
+                    <div>
+                        <a href="/"><i class="fas fa-arrow-circle-left back-icon"></i></a>
+                        </div>
+                        <div>
+                            <a href="./Name"><h2 class="comp-text pad-left">{{$company->Name}}</h2></a>
+                        </div>
+                        <div>
+                            <a href="./employees" class="@if(strpos(url()->current(), '/employees') != '' && strpos(url()->current(), '/Name') == '')currentlyActive @endif"><h2 class="comp-text pad-left">Employees</h2></a>
+                        </div>
                     </div>
                     <button onclick="return modalShow();" class="employee-btn">Add new employee</button>
                 </div>
@@ -61,5 +68,24 @@
                 </div>
             </div>
         </div>
+        <div class="grey-background3 no-display">
+            <div class="error-modal no-display">
+                <h2>ERROR!</h2>
+                <p>Employee already exists!<br> Please check the information entered.</p>
+                <button onclick="return errormodalClose()">Okay</button>
+            </div>
+        </div>
     </div>
+    @if($errors->any())
+<script>
+function errormodalShow(){
+               const greyOverlay = document.querySelector(".grey-background3")
+               const Modal = document.querySelector(".error-modal")
+
+               greyOverlay.classList.remove('no-display')
+               Modal.classList.remove('no-display')
+                    }
+                    errormodalShow();
+</script>
+@endif
 </x-app-layout>

@@ -11,8 +11,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="inner-cont p-6 bg-white border-b border-gray-200">
                     <div class="tab-flex">
-                        <a href="./Name"><h2 class="comp-text pad-left">{{$companies['Name']}}</h2></a>
-                        <a href="./employees"><h2 class="comp-text pad-left">Employees</h2></a>
+                        <div>
+                        <a href="/"><i class="fas fa-arrow-circle-left back-icon"></i></a>
+                        </div>
+                        <div>
+                            <a href="./Name" class="@if(strpos(url()->current(), '/Name') != '' && strpos(url()->current(), '/employees') == '')currentlyActive @endif"><h2 class="comp-text pad-left">{{$companies['Name']}}</h2></a>
+                        </div>
+                        <div>
+                            <a href="./employees"><h2 class="comp-text pad-left">Employees</h2></a>
+                        </div>
                     </div>    
                 </div>
                 <table class="comp-table-cont">
@@ -56,5 +63,24 @@
                 </div>
             </div>
         </div>
+        <div class="grey-background3 no-display">
+            <div class="error-modal no-display">
+                <h2>ERROR!</h2>
+                <p>Company already exists!<br> Please check the information entered.</p>
+                <button onclick="return errormodalClose()">Okay</button>
+            </div>
+        </div>
     </div>
+    @if($errors->any())
+<script>
+function errormodalShow(){
+               const greyOverlay = document.querySelector(".grey-background3")
+               const Modal = document.querySelector(".error-modal")
+
+               greyOverlay.classList.remove('no-display')
+               Modal.classList.remove('no-display')
+                    }
+                    errormodalShow();
+</script>
+@endif
 </x-app-layout>

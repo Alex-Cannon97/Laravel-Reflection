@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\companies;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Database\QueryException;
 
 
 class companiesController extends Controller
@@ -56,7 +57,14 @@ class companiesController extends Controller
       
       'website'=>'required',
     ]);
-    $company->update($attributes);
+    try{
+      $company->update($attributes);
+    }catch(QueryException $e){
+      $error = $e->errorInfo[1];
+      if($error == 1062){
+        return back()->withErrors($error);
+      }
+    } 
     return back();
   }
 

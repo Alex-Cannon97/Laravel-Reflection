@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\employees;
 use App\Models\companies;
+use Illuminate\Database\QueryException;
 
 class employeesController extends Controller
 {
@@ -30,7 +31,14 @@ class employeesController extends Controller
    {
        $inputs = request()->all();
     //    dd($inputs);
-       $employee->update($inputs);
+        try{
+            $employee->update($inputs);
+        }catch(QueryException $e){
+            $error = $e->errorInfo[1];
+            if($error == 1062){
+            return back()->withErrors($error);
+            }
+        }
        return back();
    }
 

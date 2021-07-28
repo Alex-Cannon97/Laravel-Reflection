@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\QueryException;
 
 class companies extends Model
 {
@@ -24,6 +25,13 @@ class companies extends Model
     
     public function addCompany($Name, $email, $logo, $website)
     {
+        try{
         return $this->create(compact(['Name', 'email', 'logo', 'website']));
+         }catch(QueryException $e){
+            $error = $e->errorInfo[1];
+            if($error == 1062){
+                return back()->withErrors($error);
+            }
+         }
     }
 }

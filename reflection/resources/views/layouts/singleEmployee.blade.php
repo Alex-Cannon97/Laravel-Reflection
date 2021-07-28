@@ -63,5 +63,24 @@
                 </div>
             </div>
         </div>
+        <div class="grey-background3 no-display">
+            <div class="error-modal no-display">
+                <h2>ERROR!</h2>
+                <p>Employee already exists!<br> Please check the information entered.</p>
+                <button onclick="return errormodalClose()">Okay</button>
+            </div>
+        </div>
     </div>
+    @if($errors->any())
+<script>
+function errormodalShow(){
+               const greyOverlay = document.querySelector(".grey-background3")
+               const Modal = document.querySelector(".error-modal")
+
+               greyOverlay.classList.remove('no-display')
+               Modal.classList.remove('no-display')
+                    }
+                    errormodalShow();
+</script>
+@endif
 </x-app-layout>
