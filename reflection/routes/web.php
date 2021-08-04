@@ -2,8 +2,8 @@
 
 use App\Models\companies;
 use App\Models\employees;
-use App\Http\Controllers\companiesController;
-use App\Http\Controllers\employeesController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,18 +30,18 @@ Route::middleware(['auth'])->group(function(){
     return view('dashboard', ['companies' => $companies]);
     });
 
-    Route::get('/', [companiesController::class, 'index'])->name('dashboard');
+    Route::get('/', [CompanyController::class, 'index'])->name('dashboard');
 
-    Route::get('companies/{companies:id}/Name', [companiesController::class, 'show']);
+    Route::get('companies/{companies:id}/Details', [CompanyController::class, 'show']);
 
-    Route::get('companies/{companies:id}/employees', [employeesController::class, 'index']);
-    Route::get('deletes/{id}', [employeesController::class, 'destroy']);
+    Route::get('companies/{companies:id}/employees', [EmployeeController::class, 'index']);
+    Route::get('deletes/{id}', [EmployeeController::class, 'destroy']);
 
-    Route::get('delete/{id}', [companiesController::class, 'delete']);
-    Route::post('companies/{companies:id}/store', [employeesController::class, 'store']);
-    Route::post('companies/store', [companiesController::class, 'storeCompany']);
-    Route::post('companies/{companies:id}/update', [companiesController::class, 'update']);
-    Route::get('employees/{employee}', [employeesController::class, 'show']);
-    Route::patch('employees/{employee:id}/update', [employeesController::class, 'update']);
+    Route::get('delete/{id}', [CompanyController::class, 'destroy']);
+    Route::post('companies/{companies:id}/store', [EmployeeController::class, 'store']);
+    Route::post('companies/store', [CompanyController::class, 'Store']);
+    Route::post('companies/{companies:id}/update', [CompanyController::class, 'update']);
+    Route::get('employees/{employee}', [EmployeeController::class, 'show']);
+    Route::patch('employees/{employee:id}/update', [EmployeeController::class, 'update']);
 });
 

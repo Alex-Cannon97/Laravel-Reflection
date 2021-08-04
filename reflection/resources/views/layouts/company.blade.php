@@ -15,7 +15,7 @@
                         <a href="/"><i class="fas fa-arrow-circle-left back-icon"></i></a>
                         </div>
                         <div>
-                            <a href="./Name" class="@if(strpos(url()->current(), '/Name') != '' && strpos(url()->current(), '/employees') == '')currentlyActive @endif"><h2 class="comp-text pad-left">{{$companies['Name']}}</h2></a>
+                            <a href="./Details" class="@if(strpos(url()->current(), '/Details') != '' && strpos(url()->current(), '/employees') == '')currentlyActive @endif"><h2 class="comp-text pad-left">{{$companies['Name']}}</h2></a>
                         </div>
                         <div>
                             <a href="./employees"><h2 class="comp-text pad-left">Employees</h2></a>
@@ -26,9 +26,10 @@
                     <tr>
                         <th>ID</th>
                         <th>Company Name</th>
-                        <th>Email:</th>
+                        <th>Email</th>
                         <th>Logo</th>
                         <th>Website</th>
+                        <th></th>
                     </tr>
                     <tr class="clean">
                         <td class="cell-data center width">{{$companies['id']}}</td>
@@ -36,7 +37,7 @@
                         <td class="cell-data center width">{{$companies['email']}}</td>
                         <td class="cell-data center width"><img src="/storage/images/{{$companies['logo']}}"></td>
                         <td class="cell-data center width">{{$companies['website']}}</td>
-                        <td class="button-table"><button onclick="return modalShow2()" class="table-btn edit"><i class="far fa-edit"></i></button> <a onclick="return myFunction();" href="{{url('delete/'.$companies['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
+                        <td class="button-table"><button onclick="return UpdateCompanyorEmployeeModal()" class="table-btn edit"><i class="far fa-edit"></i></button> <a onclick="return myFunction();" href="{{url('delete/'.$companies['id']) }}" class="table-btn delete"><i class="fas fa-trash"></i></a></td>
                     </tr>
                 </table>
             </div> 
@@ -45,7 +46,7 @@
             <div class="modal2 no-display">
                 <div class="modal-header">
                     <div class="main-header"><x-application-logo class="block h-20 w-20 fill-current text-gray-600" /><h3 class="move">Update Company Details:</h3></div>
-                    <div onclick="return modalClose2();" class="close-header"><span class="close">X</span></div>
+                    <div onclick="return UpdateCompanyorEmployeeModalClose();" class="close-header"><span class="close">X</span></div>
                 </div>
                 <div class="modal-form">
                     <form method="POST" class="add-company-form" action="/companies/{{$companies->id}}/update" enctype="multipart/form-data">
@@ -66,7 +67,11 @@
         <div class="grey-background3 no-display">
             <div class="error-modal no-display">
                 <h2>ERROR!</h2>
-                <p>Company already exists!<br> Please check the information entered.</p>
+                @if($errors->any())
+                @foreach($errors->all() as $error)
+                <p>{{$error}}</p>
+                @endforeach
+                @endif
                 <button onclick="return errormodalClose()">Okay</button>
             </div>
         </div>

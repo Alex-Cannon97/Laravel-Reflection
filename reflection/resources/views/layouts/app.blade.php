@@ -30,7 +30,7 @@
                     }
         </script>
         <script>
-           function modalShow(){
+           function AddNewCompanyorEmployeeModal(){
                const greyOverlay = document.querySelector(".grey-background")
                const Modal = document.querySelector(".modal")
 
@@ -39,7 +39,7 @@
                     }
         </script>
           <script>
-           function modalShow2(){
+           function UpdateCompanyorEmployeeModal(){
                const greyOverlay = document.querySelector(".grey-background2")
                const Modal = document.querySelector(".modal2")
 
@@ -48,7 +48,7 @@
                     }
         </script>
         <script>
-           function modalClose(){
+           function AddNewCompanyorEmployeeModalClose(){
                const greyOverlay = document.querySelector(".grey-background")
                const Modal = document.querySelector(".modal")
 
@@ -57,7 +57,7 @@
                     }
         </script>
           <script>
-           function modalClose2(){
+           function UpdateCompanyorEmployeeModalClose(){
                const greyOverlay = document.querySelector(".grey-background2")
                const Modal = document.querySelector(".modal2")
 

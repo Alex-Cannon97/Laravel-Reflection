@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\employees;
+use App\Models\Employee;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\companies;
+use App\Models\Company;
 
-class employeesFactory extends Factory
+class EmployeeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = employees::class;
+    protected $model = Employee::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,10 @@ class employeesFactory extends Factory
     public function definition()
     {
         return [
-                'foreign_id' => companies::factory(),
-                'firstName'=>$this->faker->firstName(),  
-                'lastName' =>$this->faker->lastName(), 
-                'companyName' =>$this->faker->word(), 
+                'company_id' => Company::factory(),
+                'first_name'=>$this->faker->firstName(),  
+                'last_name' =>$this->faker->lastName(), 
+                'company_name' =>$this->faker->word(), 
                 'email' => $this->faker->unique()->safeEmail(),
                 'phone' => $this->faker->unique()->phoneNumber(),
                 'updated_at' => now(),
