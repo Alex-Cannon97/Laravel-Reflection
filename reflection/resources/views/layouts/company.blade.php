@@ -15,7 +15,7 @@
                         <a href="/"><i class="fas fa-arrow-circle-left back-icon"></i></a>
                         </div>
                         <div>
-                            <a href="./Details" class="@if(strpos(url()->current(), '/Details') != '' && strpos(url()->current(), '/employees') == '')currentlyActive @endif"><h2 class="comp-text pad-left">{{$companies['Name']}}</h2></a>
+                            <a href="./Details" class="@if(strpos(url()->current(), '/Details') != '' && strpos(url()->current(), '/employees') == '')currentlyActive @endif"><h2 class="comp-text pad-left">{{$companies['name']}}</h2></a>
                         </div>
                         <div>
                             <a href="./employees"><h2 class="comp-text pad-left">Employees</h2></a>
@@ -25,7 +25,7 @@
                 <table class="comp-table-cont">
                     <tr>
                         <th>ID</th>
-                        <th>Company Name</th>
+                        <th>Company name</th>
                         <th>Email</th>
                         <th>Logo</th>
                         <th>Website</th>
@@ -33,7 +33,7 @@
                     </tr>
                     <tr class="clean">
                         <td class="cell-data center width">{{$companies['id']}}</td>
-                        <td class="cell-data center width">{{$companies['Name']}}</td>
+                        <td class="cell-data center width">{{$companies['name']}}</td>
                         <td class="cell-data center width">{{$companies['email']}}</td>
                         <td class="cell-data center width"><img src="/storage/images/{{$companies['logo']}}"></td>
                         <td class="cell-data center width">{{$companies['website']}}</td>
@@ -51,8 +51,8 @@
                 <div class="modal-form">
                     <form method="POST" class="add-company-form" action="/companies/{{$companies->id}}/update" enctype="multipart/form-data">
                         @csrf
-                        <label for="Name" class="modal-lable">Company Name: <span class="required">*</span></label>
-                        <input class="company-name" type="text" name="Name" required="required">
+                        <label for="name" class="modal-lable">Company name: <span class="required">*</span></label>
+                        <input class="company-name" type="text" name="name" required="required">
                         <label for="email" class="modal-lable">Company Email: <span class="required">*</span></label>
                         <input class="company-email" type="text" name="email" required="required">
                         <label for="logo" class="modal-lable">Company Logo: </label>

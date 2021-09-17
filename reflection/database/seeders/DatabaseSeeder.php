@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             // ]);
             Employee::factory(50)->create([
                 'company_id' => $company->id,
-                'company_name' => $company->Name 
+                'company_name' => $company->name 
             ]);
         }
     }

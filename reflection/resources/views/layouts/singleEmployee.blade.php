@@ -22,7 +22,7 @@
                         <h2 class="title">Company Information</h2>
                         <div>
                             <p class="acc-info">ID: {{$employee->company->id}}</p>
-                            <p class="acc-info">Company Name: {{$employee->company->Name}}</p>
+                            <p class="acc-info">Company name: {{$employee->company->name}}</p>
                             <p class="acc-info">Company Email: {{$employee->company->email}}</p>
                             <p class="acc-info">Logo: <img src="/storage/images/{{$employee->company->logo}}"></p>
                             <p class="overflow acc-info">Company Website: {{$employee->company->website}}</p>
@@ -31,8 +31,8 @@
                     <div class="info-sections">
                         <h2 class="title">Employee Information</h2>
                         <div>
-                            <p class="acc-info">First Name: {{$employee->first_name}}</p>
-                            <p class="acc-info">Last Name: {{$employee->last_name}}</p>
+                            <p class="acc-info">First name: {{$employee->first_name}}</p>
+                            <p class="acc-info">Last name: {{$employee->last_name}}</p>
                             <p class="acc-info">Personal Email: {{$employee->email}}</p>
                             <p class="acc-info">Personal Phone: {{$employee->phone}}</p>
                         </div>
@@ -50,10 +50,10 @@
                     <form method="POST" class="add-company-form" action="/employees/{{$employee->id}}/update" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
-                        <label for="firstName" class="modal-lable">First Name: <span class="required">*</span></label>
-                        <input value="{{ $employee->first_name }}" class="First-Name" type="text" name="first_name" required="required">
-                        <label for="lastName" class="modal-lable">Last Name: <span class="required">*</span></label>
-                        <input value="{{ $employee->last_name }}" class="Last-Name" type="text" name="last_name" required="required">
+                        <label for="firstName" class="modal-lable">First name: <span class="required">*</span></label>
+                        <input value="{{ $employee->first_name }}" class="First-name" type="text" name="first_name" required="required">
+                        <label for="lastName" class="modal-lable">Last name: <span class="required">*</span></label>
+                        <input value="{{ $employee->last_name }}" class="Last-name" type="text" name="last_name" required="required">
                         <label for="email" class="modal-lable">Employee Email: <span class="required">*</span></label>
                         <input value="{{ $employee->email }}" class="Employee-Email" type="text" name="email" required="required">
                         <label for="phone" class="modal-lable">Employee Phone: <span class="required">*</span></label>

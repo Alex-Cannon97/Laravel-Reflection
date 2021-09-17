@@ -15,7 +15,7 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('Name');
+            $table->string('name');
             $table->string('email')->unique();
             $table->string('logo');
             $table->string('website');
@@ -23,7 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->dateTime('created_at');
         });
     }
-//Companies Database table consists of these fields: Name (required), email, logo (minimum 100×100), website
+//Companies Database table consists of these fields: name (required), email, logo (minimum 100×100), website
     /**
      * Reverse the migrations.
      *

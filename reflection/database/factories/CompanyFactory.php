@@ -38,7 +38,7 @@ class CompanyFactory extends Factory
         }
 
         return [
-            'Name' => $this->faker->unique()->word(),
+            'name' => $this->faker->unique()->word(),
             'email' => $this->faker->unique()->safeEmail(),
             'logo' => $logo,
             'website'=> $this->faker->url(),

@@ -14,7 +14,7 @@
                         <a href="/"><i class="fas fa-arrow-circle-left back-icon"></i></a>
                         </div>
                         <div>
-                            <a href="./Details"><h2 class="comp-text pad-left">{{$company->Name}}</h2></a>
+                            <a href="./Details"><h2 class="comp-text pad-left">{{$company->name}}</h2></a>
                         </div>
                         <div>
                             <a href="./employees" class="@if(strpos(url()->current(), '/employees') != '' && strpos(url()->current(), '/Details') == '')currentlyActive @endif"><h2 class="comp-text pad-left">Employees</h2></a>
@@ -56,10 +56,10 @@
                 <div class="modal-form">
                     <form method="POST" class="add-company-form" action="store">
                         @csrf
-                        <label for="First-Name" class="modal-lable">First Name: <span class="required">*</span></label>
-                        <input id="First-Name" class="First-Name" type="text" name="first_name" required="required">
-                        <label for="Last-Name" class="modal-lable">Last Name: <span class="required">*</span></label>
-                        <input class="Last-Name" type="text" name="last_name" required="required">
+                        <label for="First-name" class="modal-lable">First name: <span class="required">*</span></label>
+                        <input id="First-name" class="First-name" type="text" name="first_name" required="required">
+                        <label for="Last-name" class="modal-lable">Last name: <span class="required">*</span></label>
+                        <input class="Last-name" type="text" name="last_name" required="required">
                         <label for="Employee-Email" class="modal-lable">Employee Email: <span class="required">*</span></label>
                         <input class="Employee-Email" type="text" name="email" required="required">
                         <label for="Employee-Phone" class="modal-lable">Employee Phone: <span class="required">*</span></label>

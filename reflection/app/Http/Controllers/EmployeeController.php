@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+Namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
@@ -8,56 +8,53 @@ use App\Models\Company;
 
 class EmployeeController extends Controller
 {
-    public function index($id)
-   {
-       $employees =Employee::where('company_id', $id)->paginate(10);
-       $company = Company::findorFail($id);
-       return view('layouts.employees',[
-           'employees'=>$employees,
-           'company'=>$company,
-        ]);
-   }
-
-   public function show(Employee $employee, Company $companies)
-   {
-    return view('layouts.singleEmployee',[
-        'employee'=>$employee,
-        'companies'=>$companies
-    ]);
-   }
-
-   public function update(Employee $employee, Request $request)
-   {
-       $inputs = request()->validate([
-        'first_name'=>'required',
-        'last_name'=>'required',
-        'email'=>['required', 'email:rfc', 'unique:employees,email'],
-        'phone'=>['required','unique:employees,phone'], 
-       ]);
-       $employee->update($inputs);
-       return back();
-   }
-
-   public function destroy($id)
+    public function index(Company $company)
     {
-        $employees = Employee::findorFail($id);
-        $employees->delete();
+        $employees = $company->employees()->paginate(10);
+        return view('layouts.employees',[
+            'employees'=>$employees,
+            'company'=>$company,
+        ]);
+    }
+
+    public function show(Employee $employee, Company $company)
+    {
+        return view('layouts.singleEmployee',[
+            'employee'=>$employee,
+            'companies'=>$company
+        ]);
+    }
+
+    public function update(Employee $employee, Request $request)
+    {
+        $inputs = $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>['required', 'email:rfc'],
+            'phone'=>['required'], 
+        ]);
+        $employee->update($inputs);
         return back();
     }
 
-        public function store($id,Employee $employee)
-        {
-            $company = Company::findorFail($id);
-            $attributes = request()->validate([
-                'first_name'=>'required',
-                'last_name'=>'required',
-                'email'=>['required', 'email:rfc', 'unique:employees,email'],
-                'phone'=>['required','unique:employees,phone'], 
-            ]);
-            $attributes['company_id'] = $company->id;
-            $attributes['company_name'] = $company->Name;
-            $employee->create($attributes);
-            return back();
-        }
+    public function destroy(Employee $employee)
+    {
+        $employee->delete();
+        return back();
+    }
+
+    public function store(Company $company,Request $request)
+    {
+        $attributes = $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>['required', 'email:rfc', 'unique:employees,email'],
+            'phone'=>['required','unique:employees,phone'], 
+        ]);
+        $attributes['company_id'] = $company->id;
+        $attributes['company_name'] = $company->name;
+        Employee::create($attributes);
+        return back();
+    }
 
 }

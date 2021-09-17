@@ -20,7 +20,7 @@ class Employee extends Model
 
     ];
 
-    protected function company()
+    public function company()
     {
         return $this->belongsTo(Company::class, 'company_id','id' );
     }

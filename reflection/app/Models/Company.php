@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+Namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,14 +11,14 @@ class Company extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Name',
+        'name',
         'email',
         'logo',
         'website',
 
     ];
 
-    protected function Employee()
+    public function employees()
     {
         return $this->hasMany(Employee::class, 'company_id', 'id');
     }
