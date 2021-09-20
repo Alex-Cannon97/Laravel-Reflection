@@ -1,9 +1,8 @@
 <?php
 
-use App\Models\companies;
-use App\Models\employees;
-use App\Http\Controllers\companiesController;
-use App\Http\Controllers\employeesController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
+use App\Models\Company;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,22 +25,22 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function(){
    
     Route::get('/companies', function(){
-    $companies = companies::all();
-    return view('dashboard', ['companies' => $companies]);
+        $companies = Company::all();
+        return view('dashboard', ['companies' => $companies]);
     });
 
-    Route::get('/', [companiesController::class, 'index'])->name('dashboard');
+    Route::get('/', [CompanyController::class, 'index'])->name('dashboard');
 
-    Route::get('companies/{companies:id}/Name', [companiesController::class, 'show']);
+    Route::get('companies/{company}/Details', [CompanyController::class, 'show']);
 
-    Route::get('companies/{companies:id}/employees', [employeesController::class, 'index']);
-    Route::get('deletes/{id}', [employeesController::class, 'destroy']);
+    Route::get('companies/{company}/employees', [EmployeeController::class, 'index']);
+    Route::get('deletes/{employee}', [EmployeeController::class, 'destroy']);
 
-    Route::get('delete/{id}', [companiesController::class, 'delete']);
-    Route::post('companies/{companies:id}/store', [employeesController::class, 'store']);
-    Route::post('companies/store', [companiesController::class, 'storeCompany']);
-    Route::post('companies/{companies:id}/update', [companiesController::class, 'update']);
-    Route::get('employees/{employee}', [employeesController::class, 'show']);
-    Route::patch('employees/{employee:id}/update', [employeesController::class, 'update']);
+    Route::get('delete/{company}', [CompanyController::class, 'destroy']);
+    Route::post('companies/{company}/store', [EmployeeController::class, 'store']);
+    Route::post('companies/store', [CompanyController::class, 'store']);
+    Route::post('companies/{company}/update', [CompanyController::class, 'update']);
+    Route::get('employees/{employee}', [EmployeeController::class, 'show']);
+    Route::patch('employees/{employee}/update', [EmployeeController::class, 'update']);
 });
 

@@ -2,19 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\companies;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class companiesFactory extends Factory
+class CompanyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = companies::class;
+    protected $model = Company::class;
 
     /**
      * Define the model's default state.
@@ -38,7 +38,7 @@ class companiesFactory extends Factory
         }
 
         return [
-            'Name' => $this->faker->unique()->word(),
+            'name' => $this->faker->unique()->word(),
             'email' => $this->faker->unique()->safeEmail(),
             'logo' => $logo,
             'website'=> $this->faker->url(),

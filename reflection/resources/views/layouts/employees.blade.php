@@ -14,26 +14,27 @@
                         <a href="/"><i class="fas fa-arrow-circle-left back-icon"></i></a>
                         </div>
                         <div>
-                            <a href="./Name"><h2 class="comp-text pad-left">{{$company->Name}}</h2></a>
+                            <a href="./Details"><h2 class="comp-text pad-left">{{$company->name}}</h2></a>
                         </div>
                         <div>
-                            <a href="./employees" class="@if(strpos(url()->current(), '/employees') != '' && strpos(url()->current(), '/Name') == '')currentlyActive @endif"><h2 class="comp-text pad-left">Employees</h2></a>
+                            <a href="./employees" class="@if(strpos(url()->current(), '/employees') != '' && strpos(url()->current(), '/Details') == '')currentlyActive @endif"><h2 class="comp-text pad-left">Employees</h2></a>
                         </div>
                     </div>
-                    <button onclick="return modalShow();" class="employee-btn">Add new employee</button>
+                    <button onclick="return AddNewCompanyorEmployeeModal();" class="employee-btn">Add new employee</button>
                 </div>
                 <table class="comp-table-cont">
                     <tr>
                         <th>FirstName</th>
                         <th>LastName</th>
-                        <th>Email:</th>
+                        <th>Email</th>
                         <th>phone</th>
                         <th>UpdatedAt</th>
+                        <th></th>
                     </tr>
                     @foreach($employees as $employee)
                     <tr class="clean">
-                        <td class="cell-data width">{{$employee['firstName']}}</td>
-                        <td class="cell-data width">{{$employee['lastName']}}</td>
+                        <td class="cell-data width">{{$employee['first_name']}}</td>
+                        <td class="cell-data width">{{$employee['last_name']}}</td>
                         <td class="cell-data width">{{$employee['email']}}</td>
                         <td class="cell-data width">{{$employee['phone']}}</td>
                         <td class="cell-data width">{{$employee['updated_at']}}</td>
@@ -50,19 +51,19 @@
             <div class="modal no-display">
                 <div class="modal-header">
                     <div class="main-header"><x-application-logo class="block h-20 w-20 fill-current text-gray-600" /><h3 class="move">Add Employee Details:</h3></div>
-                    <div onclick="return modalClose();" class="close-header"><span class="close">X</span></div>
+                    <div onclick="return AddNewCompanyorEmployeeModalClose();" class="close-header"><span class="close">X</span></div>
                 </div>
                 <div class="modal-form">
                     <form method="POST" class="add-company-form" action="store">
                         @csrf
-                        <label for="First-Name" class="modal-lable">First Name: <span class="required">*</span></label>
-                        <input id="First-Name" class="First-Name" type="text" name="First-Name" required="required">
-                        <label for="Last-Name" class="modal-lable">Last Name: <span class="required">*</span></label>
-                        <input class="Last-Name" type="text" name="Last-Name" required="required">
+                        <label for="First-name" class="modal-lable">First name: <span class="required">*</span></label>
+                        <input id="First-name" class="First-name" type="text" name="first_name" required="required">
+                        <label for="Last-name" class="modal-lable">Last name: <span class="required">*</span></label>
+                        <input class="Last-name" type="text" name="last_name" required="required">
                         <label for="Employee-Email" class="modal-lable">Employee Email: <span class="required">*</span></label>
-                        <input class="Employee-Email" type="text" name="Employee-Email" required="required">
+                        <input class="Employee-Email" type="text" name="email" required="required">
                         <label for="Employee-Phone" class="modal-lable">Employee Phone: <span class="required">*</span></label>
-                        <input class="Employee-Phone" type="text" name="Employee-Phone" required="required">
+                        <input class="Employee-Phone" type="text" name="phone" required="required">
                         <button type="submit" class="add-new-company">Add New Employee</button>
                     </form>
                 </div>
@@ -71,7 +72,11 @@
         <div class="grey-background3 no-display">
             <div class="error-modal no-display">
                 <h2>ERROR!</h2>
-                <p>Employee already exists!<br> Please check the information entered.</p>
+                @if($errors->any())
+                @foreach($errors->all() as $error)
+                <p>{{$error}}</p>
+                @endforeach
+                @endif
                 <button onclick="return errormodalClose()">Okay</button>
             </div>
         </div>

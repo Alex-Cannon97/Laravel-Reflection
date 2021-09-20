@@ -353,7 +353,8 @@
     margin-right: auto;
     background-color: white;
     width: 480px;
-    height: 170px;
+    min-height: 170px;
+    max-height: 700px;
     border: 1px solid;
     margin-top: 10px;
   }
@@ -384,6 +385,7 @@
     background-color: #25e825;
     font-size: 18px;
     font-weight: 600;
+    margin-bottom: 20px;
   }
 
   .error-modal button:hover{
